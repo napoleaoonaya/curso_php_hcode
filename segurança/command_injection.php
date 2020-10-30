@@ -2,7 +2,6 @@
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
 
-
     //$cmd = $_POST["cmd"];
 
     $cmd = escapeshellarg(escapeshellcmd($_POST["cmd"]));

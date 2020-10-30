@@ -1,5 +1,12 @@
 <?php
 
+/*
+* Uma forma de evitar o SQL Injection é
+* usar a função addslashes, is_numeric e 
+* strlen para validar o dado que não for
+* numérico.
+*/
+
 $id = addslashes(isset($_GET["id"])) ? $_GET["id"] : 1;
 
 if(!is_numeric("id") || strlen("id") > 3) {
