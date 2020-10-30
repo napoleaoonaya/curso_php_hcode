@@ -1,8 +1,11 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"] === "POST"){
+if($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $cmd = escapeshellcmd($_POST["cmd"]);
+
+    //$cmd = $_POST["cmd"];
+
+    $cmd = escapeshellarg(escapeshellcmd($_POST["cmd"]));
 
     var_dump($cmd);
 
@@ -13,7 +16,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     echo "</pre>";
 
     /*
-    * Atenção para função system e exec sempre trate os dados, usando a função escapeshellcmd().
+    * Atenção para função system e exec sempre trate os dados,
+    * usando a função escapeshellcmd() ou escapeshellarg().
+    *
+    * Pode se usar o escapeshellcmd() e o escapeshellarg() em conjunto,
+    * o uso das duas funções em conjunto impede o uso de operadores e
+    * argumentos.
+    *
     */
 
 }
